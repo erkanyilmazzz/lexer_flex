@@ -3,11 +3,12 @@ void showEroor();
 
 
 
-
+comment  [;][;][a-zA-Z][a-z0-9]*
 number [0-9]*
 if   "if"
 ID       [a-zA-Z][a-z0-9]*
 string   [\"][a-z][a-z0-9.]*[\"]
+
 
 
 %%
@@ -41,12 +42,13 @@ if 				{printf("KW_IF ");}
 "true"			{printf("KW_TRUE ");}
 "false"			{printf("KW_FALSE ");}
 
+{comment}		{printf("COMMENT");}
+";"				{printf("SEMICOLLUM" );}
 
-{number}        	{printf(" VALUE ");}
+
+{number}        {printf(" VALUE ");}
 {ID}			{printf("IDENTIFIER ");}
 {string}		{printf("STRING ");}
-
-
 
 
 
